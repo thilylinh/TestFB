@@ -8,7 +8,7 @@
             <n-button-default-add-new ref="refNewsContentButtonDefaultAddNew"
               @handlerSubmitEvent="subEvNewsContentButtonDefaultAddNew" />
           </div>
-          <piaf-breadcrumb />
+         
           <div class="mb-2">
             <n-button-default-display-option />
             <b-collapse id="displayOptions" class="d-md-block">
@@ -39,9 +39,10 @@
             <vuetable ref="projectManagerTableRef" :api-mode="false" :data="dataPage" :fields="fields"
               :no-data-template="noDataTemplate" :reactive-api-url="true" class="table-divided order-with-arrow">
               <template slot="avatar" slot-scope="props">
-                <b-img-lazy class="img_avatar_table" loading="lazy" v-lazy="returnAvatar(props.rowData)"
-                  :src="returnAvatar(props.rowData)" @click="showImagePopup(props.rowData)"></b-img-lazy>
-                <button @click="showImagePopup(props.rowData)">xem</button>
+                <img class="img_avatar_table" :src="returnAvatar(props.rowData)" />
+                <!-- <b-img-lazy class="img_avatar_table" loading="lazy" v-lazy="returnAvatar(props.rowData)"
+                  :src="returnAvatar(props.rowData)" @click="showImagePopup(props.rowData)"></b-img-lazy> -->
+                <!--<button @click="showImagePopup(props.rowData)">xem</button>-->
               </template>
               <template slot="staffName" slot-scope="props">
                 {{ props.rowData.name }}
@@ -127,7 +128,7 @@ import helperApi from "@/views/app/system-manager/api/helperApi";
 import NewsAuthorCombobox from "@/views/app/news-content-manager/combobox/newsAuthorCombobox.vue";
 import NCoreDatePicker from "@/containers/ndev-core/components/NCoreDatePicker.vue";
 import ModalContentDateTime from "@/views/app/news-content-manager/modal-content/modalContentDateTime.vue";
-import ModalImage from "../modal-content/modal-image.vue";
+// import ModalImage from "../modal-content/modal-image.vue";
 
 export default {
   components: {
@@ -148,7 +149,7 @@ export default {
     NPaginationPageSize,
     NPagination,
     vuetable: Vuetable,
-    ModalImage
+    // ModalImage
   },
   data() {
     return {
@@ -268,6 +269,9 @@ export default {
       this.$hideLoading();
     },
     returnAvatar(val) {
+      if(!val.avatarLink) {
+        return '/images/khung_vien/newsAvatar.png'
+      }
       if (val.avatarLink.includes("https")) return val.avatarLink;
       return this.$serverfile + val.avatarLink.replace(/\\/g, '/')
     },

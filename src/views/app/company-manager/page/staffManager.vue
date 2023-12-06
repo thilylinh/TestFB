@@ -13,7 +13,7 @@
               ><i class="simple-icon-pencil" /> {{ $t("pages.add-new") }}
             </b-button>
           </div>
-          <piaf-breadcrumb />
+         
           <div class="mb-2">
             <b-button
               v-b-toggle.displayOptions

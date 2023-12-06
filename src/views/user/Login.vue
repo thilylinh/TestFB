@@ -3,10 +3,6 @@
     <b-colxx class="mx-auto my-auto" md="10" xxs="12">
       <b-card class="auth-card" no-body>
         <b-row class="khungLogin">
-          <b-colxx xxs="12" class="text-center nFontButton font-weight-700 mt-4 tieude_chao_login"
-            style="font-size: 20px">
-            ITPHONUI
-          </b-colxx>
           <b-colxx xxs="12" class="text-center nFontButton font-weight-700 tieude_chao_login tieude_chao_1">
             HỆ THỐNG QUẢN TRỊ WEBSITE
           </b-colxx>

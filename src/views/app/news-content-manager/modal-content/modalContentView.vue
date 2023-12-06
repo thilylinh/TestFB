@@ -8,7 +8,7 @@
            centered
            no-close-on-backdrop
            ok-title="Lưu"
-           size="xl"
+           size="s"
            @shown="callOpenModal()"
            @hidden="resetStateModal">
     <b-form class="content-form ndev-form">

@@ -4,7 +4,6 @@
       <b-row>
         <b-colxx xxs="12">
           <h1 class="NHeaderPage">{{ pageTitle }}</h1>
-          <piaf-breadcrumb/>
           <div class="separator mb-2"/>
         </b-colxx>
       </b-row>
@@ -306,6 +305,7 @@ export default {
           const dataSend = {
             name: this.form.name,
             summary: this.form.summary,
+            avatarLink: iAvatar.link,
             content: iContent,
             author: this.form.author,
             urlRootLink: this.form.urlRootLink,
@@ -733,7 +733,6 @@ export default {
       this.pageTitle = "Cập nhật bài viết"
       //========================================Lấy dữ liệu bài viết====================================================
       const iValueInfo = await NCoreHelper.v2executeGETById(this, newsContentApi.NEWS_CONTENT_GET_BY_ID, idContent)
-    console.log("iValueInfo", iValueInfo)
       this.form.author = iValueInfo.author
       this.form.content = iValueInfo.content
       this.form.dateTimeStart = iValueInfo.dateTimeStart

@@ -99,9 +99,15 @@ body {
 .ndev-form label {
   font-family: "Genos", sans-serif !important;
   //'Pattaya', sans-serif;
-  font-size: 18px;
+  font-size: 18px
 }
 
+.ndev-form {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
 .NFontTrTable {
   font-size: 10px !important;
 }

@@ -35,7 +35,7 @@
         </b-button-group>
       </div>
       <add-new-modal :categories="categories" :statuses="statuses"></add-new-modal>
-      <piaf-breadcrumb />
+     
       <div class="mb-2 mt-2">
         <b-button
           variant="empty"
