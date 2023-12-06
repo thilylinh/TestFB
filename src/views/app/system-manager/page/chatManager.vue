@@ -1,0 +1,320 @@
+<template>
+  <b-row>
+    <b-colxx class="disable-text-selection">
+      <b-row>
+        <b-colxx xxs="12">
+          <h1 class="NHeaderPage">Quản lý thông tin chat</h1>
+          <div class="top-right-button-container">
+          </div>
+          <piaf-breadcrumb/>
+          <div class="mb-2">
+            <n-button-default-display-option/>
+            <b-collapse id="displayOptions" class="d-md-block">
+              <div class="d-block d-md-inline-block pt-1">
+                <n-button-default-search ref="refUserTypeManager_ButtonDefaultSearch"
+                                         @handlerSubmitEvent="subEvUserTypeManager_ButtonDefaultSearch"/>
+                <n-core-statu-combobox-view @handlerSubmitEvent="subEvSubjectTypeManagerStatusViewCombobox"/>
+              </div>
+              <n-pagination-page-size :from="from"
+                                      :page-size-default="pageSize"
+                                      :to="to"
+                                      :total-record="totalRecord"
+                                      @handleChangePageSize="handleChangePageSize"/>
+            </b-collapse>
+          </div>
+          <div class="separator mb-2"/>
+        </b-colxx>
+      </b-row>
+      <template>
+        <n-core-skeleton-table />
+        <b-row v-show="!$store.state.componentLoading">
+          <b-colxx xxs="12" class="NTable">
+            <vuetable ref="refSubjectTypeManagerTable"
+                      :api-mode="false"
+                      :data="dataPage"
+                      :fields="fields"
+                      :no-data-template="noDataTemplate"
+                      :reactive-api-url="true"
+                      class="table-divided order-with-arrow">
+              <template slot="roomName" slot-scope="props">{{ props.rowData.content }}</template>
+              <template slot="sendDateTime" slot-scope="props">{{props.rowData.sendDateTime | formatDateDDMMYYYYHHMM}}</template>
+              <template slot="senderName" slot-scope="props">{{props.rowData.senderName}}</template>
+              <template slot="receivederName" slot-scope="props">{{props.rowData.receivederName}}</template>
+              <template slot="statusId" slot-scope="props"></template>
+              <template slot="actions" slot-scope="props">
+                <n-core-action :data-id="props.rowData.id"
+                               :data-name="props.rowData.content"
+                               :data-action="props.rowData.actions"
+                               @handlerSubmitEvent="subEvSubjectTypeManagerAction"/>
+              </template>
+            </vuetable>
+            <n-pagination :current-page="pageNumber"
+                          :default-page-size="pageSize"
+                          :total-items="totalRecord"
+                          @handlePagingClick="handlePagingClick"/>
+            <n-core-modal-delete ref="refSubjectTypeManagerDelete"
+                                 @handleSubmitEvent="subEvSubjectTypeManagerDelete"/>
+          </b-colxx>
+        </b-row>
+      </template>
+    </b-colxx>
+  </b-row>
+</template>
+<script>
+
+import Vuetable from "vuetable-2/src/components/Vuetable";
+import {mapActions} from "vuex";
+import NCoreHelper from "../../../NCoreHelper/NCoreHelper";
+import NCoreConfig from "../../../NCoreHelper/NCoreConfig";
+import NPagination from "../../../../containers/ndev-manager/Page/NPagination";
+import NPaginationPageSize from "../../../../containers/ndev-manager/Page/NPaginationPageSize";
+import NCoreAction from "@/containers/ndev-core/components/NCoreAction";
+import NCoreStatuComboboxView from "@/containers/ndev-core/components/NCoreStatuComboboxView";
+import NCoreSkeleton from "@/containers/ndev-core/components/NCoreSkeleton";
+import NButtonDefaultDisplayOption from "@/containers/ndev-core/button_default/NButtonDefaultDisplayOption";
+import NButtonDefaultSearch from "@/containers/ndev-core/button_default/NButtonDefaultSearch";
+import NCoreSkeletonTable from "@/containers/ndev-core/components/NCoreSkeletonTable";
+import chatManagerApi from "@/views/app/system-manager/api/chatManagerApi";
+import NCoreModalDelete from "@/containers/ndev-core/components/NCoreModalDelete";
+
+export default {
+  components: {
+    NCoreModalDelete,
+    NCoreSkeletonTable,
+    NButtonDefaultSearch,
+    NButtonDefaultDisplayOption,
+    NCoreSkeleton,
+    NCoreStatuComboboxView,
+    NCoreAction,
+    NPaginationPageSize,
+    NPagination,
+    vuetable: Vuetable
+  },
+  data() {
+    return {
+      pageId: "chatManagerPageId",
+      noDataTemplate: NCoreConfig.noDataTemplate,
+      pageNumber: 1,
+      pageSize: 8,
+      search: "",
+      statusId: 0,
+      from: 1,
+      to: 0,
+      totalRecord: 0,
+      dataPage: [],
+      fields: [
+        {
+          name: "__slot:actions",
+          title: "ACT",
+          titleClass: "center aligned text-right",
+          dataClass: "center aligned text-right",
+          width: "2%"
+        },
+        {
+          name: "__slot:roomName",
+          sortField: "name",
+          title: "NỘI DUNG",
+          titleClass: "",
+          dataClass: "list-item-heading",
+          width: "35%"
+        },
+        {
+          name: "__slot:sendDateTime",
+          sortField: "name",
+          title: "THỜI GIAN GỬI",
+          titleClass: "center",
+          dataClass: "center",
+          width: "10%"
+        },
+        {
+          name: "__slot:senderName",
+          sortField: "name",
+          title: "NGƯỜI GỬI",
+          titleClass: "center",
+          dataClass: "center",
+          width: "20%"
+        },
+        {
+          name: "__slot:receivederName",
+          sortField: "name",
+          title: "NGƯỜI NHẬN",
+          titleClass: "center",
+          dataClass: "center",
+          width: "20%"
+        },
+        {
+          name: "__slot:statusId",
+          sortField: "name",
+          title: "TRẠNG THÁI",
+          titleClass: "center",
+          dataClass: "center",
+          width: "10%"
+        },
+      ]
+    };
+  },
+  methods: {
+    ...mapActions([
+      "callStoreCrudUpdate",
+      "callStoreCrudDelete",
+      "callStoreCrudQuestion"
+    ]),
+    async fetchData() {
+      this.$showLoading();
+      const dataSend = {
+        search: this.search,
+        pageSize: this.pageSize,
+        pageNumber: this.pageNumber,
+        statusId: this.statusId
+      };
+      const iResult = await NCoreHelper.v2executeGET(
+        this,
+        chatManagerApi.GET_PAGING_MANAGER,
+        dataSend
+      );
+      this.dataPage = iResult.pageLists;
+      this.items = iResult.pageLists;
+      this.totalRecord = iResult.totalRecord;
+      this.to = this.pageSize;
+      this.$hideLoading();
+    },
+    async subEvSubjectTypeManagerStatusViewCombobox(val) {
+      this.statusId = val
+      this.pageNumber = 1
+      await this.fetchData()
+    },
+    async subEvSubjectTypeManagerButtonDefaultAddNew() {
+      const valueAuthority = await NCoreHelper.v2checkAuthorities('SportSubjectTypeManager')
+      if ((valueAuthority & NCoreConfig.authority_Add) !== 0) {
+        await this.callStoreCrudUpdate({
+          id: this.$refs.refSubjectTypeManagerEvent.idModal,
+          title: "Thêm mới môn thi đấu",
+          type: "add",
+          funcName: "môn thi đấu",
+          groupTable: 4,
+          data: null
+        });
+        NCoreHelper.v2modalShowHide(
+          this,
+          this.$refs.refSubjectTypeManagerEvent.idModal,
+          1
+        );
+      } else {
+        NCoreHelper.v2alertMess(this, NCoreConfig.localErrMessAuthority, 1)
+      }
+    },
+    async subEvSubjectTypeManagerEvent(val) {
+      if (val === true) {
+        await this.fetchData();
+      }
+      NCoreHelper.v2modalShowHide(
+        this,
+        this.$refs.refSubjectTypeManagerEvent.idModal,
+        0
+      );
+      this.$hideProcessing()
+    },
+    async subEvSubjectTypeManagerDelete(val) {
+      let model = [];
+      model.push(val.id);
+      const iResult = await NCoreHelper.v2executePOST(
+        this,
+        chatManagerApi.DELETE,
+        {
+          models: model
+        }
+      );
+      if (iResult) {
+        await this.fetchData();
+        NCoreHelper.v2alertMess(this, "Xóa dữ liệu thành công", 1);
+        NCoreHelper.v2modalShowHide(
+          this,
+          this.$refs.refSubjectTypeManagerDelete.idModal,
+          0
+        );
+      } else {
+        NCoreHelper.v2alertMess(this, "", 3);
+      }
+      this.$hideProcessing()
+    },
+    handlePagingClick(pageNumber, pageSize) {
+      this.pageNumber = pageNumber;
+      this.pageSize = pageSize;
+      this.fetchData();
+    },
+    handleChangePageSize(val) {
+      this.pageSize = val;
+      this.fetchData();
+    },
+    subEvUserTypeManager_ButtonDefaultSearch(val) {
+      this.search = val;
+      this.pageNumber = 1;
+      this.fetchData();
+    },
+    async subEvSubjectTypeManagerAction(val) {
+      switch (val.id) {
+        // Mở khóa
+        case 201: {
+          await this.callStoreCrudQuestion({
+            id: this.$refs.refSubjectTypeManagerQuestion.idModal,
+            tableId: 11,
+            contentId: val.dataContentId,
+            flagKey: val.id,
+            titleOne: 'BẠN CHẮC CHẮN MUỐN MỞ KHÓA DỮ LIỆU',
+            titleTwo: val.dataContentName
+          })
+          NCoreHelper.v2modalShowHide(
+            this,
+            this.$refs.refSubjectTypeManagerQuestion.idModal,
+            1
+          );
+          break
+        }
+        // Khóa
+        case 202: {
+          await this.callStoreCrudQuestion({
+            id: this.$refs.refSubjectTypeManagerQuestion.idModal,
+            tableId: 11,
+            contentId: val.dataContentId,
+            flagKey: val.id,
+            titleOne: 'BẠN CHẮC CHẮN MUỐN KHÓA DỮ LIỆU',
+            titleTwo: val.dataContentName
+          })
+          NCoreHelper.v2modalShowHide(
+            this,
+            this.$refs.refSubjectTypeManagerQuestion.idModal,
+            1
+          );
+          break
+        }
+        // Cập nhật
+        case 101: {
+          break
+        }
+        //Xóa
+        case 102: {
+          await this.callStoreCrudDelete({
+            content: val.dataContentName,
+            id: val.dataContentId
+          });
+          NCoreHelper.v2modalShowHide(
+            this,
+            this.$refs.refSubjectTypeManagerDelete.idModal,
+            1
+          );
+          break
+        }
+        default:
+          break
+      }
+    }
+  },
+  computed: {},
+  watch: {},
+  created() {
+  },
+  mounted() {
+    this.fetchData();
+  }
+};
+</script>

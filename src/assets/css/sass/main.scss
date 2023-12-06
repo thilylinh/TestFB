@@ -1,0 +1,1532 @@
+@import "./_mixins.scss";
+@import "./_piaf.style.scss";
+@import "./_plugins.scss";
+// @import url("https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Genos:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pattaya&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Imbue:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Texturina:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/*@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Rokkitt:wght@100;200;300;400;500;600;700;800;900&display=swap');*/
+//@import url('https://fonts.googleapis.com/css2?family=Sarpanch:wght@400;500;600;700;800;900&display=swap');
+/** your custom css code **/
+//@font-face {
+//  font-family: "NissanBrand";
+//  src: local("NissanBrand"),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Bold.eot'),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Bold.ttf'),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Bold.woff'),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Light.eot'),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Light.ttf'),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Light.woff'),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Regular.eot'),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Regular.ttf'),
+//  url('~@/assets/fonts/Nissan-Brand-Font/NissanBrand-Regular.woff');
+//}
+//
+//@font-face {
+//  font-family: "Praise";
+//  src: url('~@/assets/fonts/Praise-Regular.ttf')
+//}
+//
+//@font-face {
+//  font-family: "VPBank";
+//  src: local("VPBank"),
+//  url('~@/assets/fonts/VPBankFonts/VPBank-Bold.otf');
+//  //url("src/assets/fonts/VPBankFonts/VPBank-Bold.otf") format("truetype"),
+//  //url("src/assets/fonts/VPBankFonts/VPBank.otf") format("truetype")
+//  //src: url("~@/assets/fonts/VPBankFonts/VPBank-Bold.otf");
+//}
+body {
+  /*font-family: 'Rokkitt', serif;*/
+  /*font-family: 'EB Garamond', serif;*/
+  /*  font-size: 0.8rem;
+    font-weight: 400;
+    color: #3a3a3a;
+    background: #f8f8f8;*/
+}
+
+.modal .modal-header,
+.modal .modal-body,
+.modal .modal-footer {
+  padding-left: 1rem;
+  padding-top: 15px;
+}
+
+.modal .modal-header {
+  font-weight: bold !important;
+  font-family: "Genos", sans-serif;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.modal .modal-header .modal-title {
+  text-transform: uppercase;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.modal-body {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding-bottom: 0px !important;
+}
+
+.nEventTitle {
+  font-weight: 700 !important;
+  font-family: "Genos", sans-serif;
+  font-size: 18px;
+}
+
+.nBorderTop {
+  border-top: 1px solid #d7d7d7;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  font-weight: 700 !important;
+  font-family: "Genos", sans-serif;
+  font-size: 25px;
+}
+
+.nBorderTop .btn {
+  font-size: 18px;
+}
+
+.nBorderTop2 .btn {
+  font-size: 15px !important;
+}
+
+.ndev-form label {
+  font-family: "Genos", sans-serif !important;
+  //'Pattaya', sans-serif;
+  font-size: 18px;
+}
+
+.NFontTrTable {
+  font-size: 10px !important;
+}
+
+.nFontButton {
+  font-family: "Genos", sans-serif !important;
+  //'Pattaya', sans-serif;
+  font-size: 15px;
+}
+
+.nButtonDropdown {
+  .btn {
+    font-size: 15px !important;
+  }
+
+  .dropdown-header {
+    padding: 5px 5px 5px 3px;
+    font-size: 15px;
+    font-weight: 700;
+    color: red;
+    margin-left: 5px;
+  }
+
+  .dropdown-item {
+    padding: 5px 5px 0px 30px;
+    font-size: 15px;
+    font-weight: 700;
+    color: blue !important;
+  }
+
+  .dropdown-item:hover {
+    color: red;
+  }
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.nImg {
+  /*width: 100%;
+  height: 150px;
+  object-fit: contain;*/
+  width: 250px;
+  height: 250px;
+  -o-object-fit: contain;
+  object-fit: fill;
+  margin: 0 auto;
+}
+
+.nImg_Oc {
+  width: 70%;
+  height: 150px;
+  object-fit: fill;
+}
+
+.img_avatar_table {
+  width: 100px;
+  height: 100px;
+  object-fit: fill;
+  cursor: pointer;
+}
+
+.nTab .active {
+  font-weight: bold !important;
+  color: red !important;
+  font-family: "Genos", sans-serif !important;
+  font-size: 20px;
+}
+
+.nTab .nav-link {
+  font-weight: normal;
+  font-family: "Genos", sans-serif !important;
+  font-size: 20px;
+}
+
+.nHover {
+  cursor: pointer;
+}
+
+.nFileMinhChung {
+  cursor: pointer;
+}
+
+.nFileMinhChung:hover {
+  font-weight: bold;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.sttWidth {
+  width: 50px;
+}
+
+.nFontBold {
+  font-weight: bold !important;
+}
+
+.nColorRed {
+  color: red !important;
+}
+
+.nColorBlue {
+  color: blue !important;
+}
+
+.nColorWhite {
+  color: whitesmoke !important;
+}
+
+.nRequired {
+  font-weight: bold !important;
+  color: red !important;
+  //font-size: 12px;
+  //vertical-align: super;
+}
+
+.nSmallButton {
+  padding: 2px 5px 2px 5px !important;
+  font-size: 12px !important;
+}
+
+.NPage-Content .fr-wrapper {
+  height: 250px;
+}
+
+.nMt-_20 {
+  margin-top: -20px;
+}
+
+.nButtonUpDown {
+  border-radius: 5px !important;
+  width: 40px;
+  height: 24px;
+  font-weight: bold;
+}
+
+.nButtonFunction button {
+  color: whitesmoke !important;
+}
+
+.nModal_BootTrap .card .card-body {
+  padding: 5px !important;
+}
+
+.question-content-view-paging p {
+  font-family: Tahoma !important;
+  font-size: 14px !important;
+  margin-top: 0px !important;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.image-rotation {
+  &.rotateImageRight {
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    width: 100%;
+    height: auto;
+  }
+
+  &.rotateImageLeft {
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+  }
+}
+
+.NButton_MarkDesignLesson {
+  .btn {
+    border-radius: 0px;
+  }
+
+  .btn-sm {
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 0px 10px;
+    font-weight: 600;
+  }
+}
+
+.NImage {
+  max-width: 100% !important;
+  height: auto;
+}
+
+.col_right {
+  background: url(https://hondaotogialai.vn/N_nminity/img/bg_doc.jpg) top right repeat-y;
+
+  .col_right_items {
+    width: 98%;
+
+    label {
+      margin-bottom: 0px !important;
+      margin-top: 5px !important;
+    }
+  }
+}
+
+.col_left {
+  left: -25px;
+
+  label {
+    margin-bottom: 0px !important;
+    margin-top: 5px !important;
+  }
+}
+
+iframe {
+  width: 100%;
+  max-width: 650px; /* Also helpful. Optional. */
+}
+
+body {
+  padding-bottom: 10px !important;
+  min-height: calc(100% - 80px);
+  font-family: Verdana;
+}
+
+.navbar {
+  height: 70px;
+  padding: 5px;
+}
+
+.sidebar {
+  padding-top: 70px;
+}
+
+.sidebar .main-menu {
+  height: calc(100% - 70px);
+}
+
+.sidebar .sub-menu {
+  height: calc(100% - 70px);
+}
+
+.navbar .navbar-logo {
+  width: 85% !important;
+  height: 35px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  font-family: "Genos";
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.NHeaderPage {
+  font-size: 25px !important;
+  font-family: "Genos", sans-serif;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+footer.page-footer {
+  height: 40px;
+}
+
+//font-family: 'Corinthia', cursive;
+//font-family: 'Genos', sans-serif;
+//font-family: 'Pattaya', sans-serif;
+
+//IN THẺ
+.khung_in_the {
+  font-family: "Genos", sans-serif;
+  display: flex;
+
+  .vien_1 {
+    width: 9cm;
+    height: 13cm;
+    margin-right: 5px;
+
+    .vien_2 {
+      padding: 4px 4px 4px 7px;
+
+      .khung_anh {
+        width: 11cm;
+        height: 16cm;
+        position: relative;
+        margin-right: 15px;
+
+        .anh_nen {
+          width: 80%;
+          height: 75%;
+        }
+      }
+    }
+  }
+}
+
+.khung_thong_tin_giao_vien {
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 45px;
+  margin-top: 300px;
+  color: red;
+  display: flex;
+
+  .and_dai_dien {
+    width: 100px;
+    height: 190px;
+    margin-left: -20px;
+
+    .anh_dai_dien_img {
+      width: 100%;
+    }
+  }
+}
+
+.khung_thong_tin_giao_vien_chi_tiet {
+  width: 190px;
+  height: 190px;
+  margin-left: -7px;
+
+  .ho_va_ten {
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
+    color: blue;
+  }
+
+  .so_bao_danh {
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 0px;
+    color: red;
+  }
+
+  .mon_thi {
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 0px;
+    color: #ff0ea6;
+  }
+
+  .don_vi_1 {
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 0px;
+    color: black;
+  }
+
+  .don_vi_2 {
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
+    margin-top: -10px;
+    color: black;
+  }
+}
+
+//
+
+main {
+  margin-left: 380px;
+  margin-top: 80px;
+  margin-right: 40px;
+}
+
+footer.page-footer {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-top: 1px solid #d7d7d7;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.selectCombobox {
+  cursor: pointer;
+}
+
+.selectCombobox:hover {
+  font-weight: bold;
+  color: blue;
+}
+
+.selectBreakCom:hover {
+  font-weight: bold;
+  color: red !important;
+}
+
+.folderRootBreakCom {
+  border-top: 1px solid #0c5088;
+  border-bottom: 1px solid #0c5088;
+
+  .folderRootBreakComTitle {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.view-question-content p {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.img_avatar {
+  height: 40px !important;
+  width: 50px !important;
+  object-fit: fill;
+}
+
+.sidebar .main-menu ul li a {
+  font-weight: 700;
+  font-family: Genos;
+  font-size: 15px;
+}
+
+.sidebar .main-menu ul li.active a {
+  color: red;
+}
+
+.sidebar .sub-menu ul li.active i,
+.sidebar .sub-menu ul li.active a {
+  color: blue;
+  font-weight: 700;
+}
+
+.header_title {
+  color: red;
+  margin-top: -15px;
+
+  .tieu_de_02 {
+    margin-top: -10px;
+  }
+}
+
+.header_title_mobile {
+  display: none;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.vuetable tr td,
+.vuetable tr th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  vertical-align: inherit;
+}
+
+.nHeaderTable {
+}
+
+.nHeaderTable_tr {
+  border: 1px solid #0a4372 !important;
+  font-family: Genos;
+  font-weight: 700;
+  font-size: 15px;
+  background-color: #f9fafb;
+}
+
+.nHeaderTable_th {
+  vertical-align: inherit !important;
+  text-align: center !important;
+  font-family: Genos;
+}
+
+.no-header .vuetable-head-wrapper {
+  display: none;
+}
+
+.tieude_chao_login {
+  display: block;
+}
+
+.tieude_chao_1 {
+  font-size: 40px;
+  color: blue;
+}
+
+.tieude_chao_2 {
+  font-size: 30px;
+  color: blue;
+}
+
+.logoDangNhap {
+  //width: 50%;
+  width: 70%;
+  height: auto;
+  float: right;
+  margin-top: 10%;
+}
+
+.logoDangNhap_thienHa {
+  margin-top: 20%;
+}
+
+.khungdangnhap {
+  margin-top: 60px;
+}
+
+.khungdangnhap .tieudeDangNhap {
+  font-size: 30px;
+  color: red;
+}
+
+.khungdangnhap .dangnhap {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.sidebar .sub-menu ul li span {
+  vertical-align: middle;
+  padding-top: 3px;
+  display: contents;
+}
+
+.folderFunction {
+  padding-bottom: 10px;
+}
+
+//Chấm thi
+.NFontGenos {
+  font-family: Genos;
+  font-weight: 700;
+
+  .tieu_de_01 {
+    font-size: 16px;
+    color: red;
+    font-style: italic;
+  }
+
+  .ho_ten {
+    font-size: 25px;
+    color: blue;
+  }
+
+  .don_vi {
+    font-size: 18px;
+  }
+
+  .coutdown_time {
+    font-size: 65px;
+    color: blue;
+  }
+
+  .dem_nguoc {
+    color: blue;
+  }
+}
+
+.htkt {
+  color: blue;
+}
+
+//------------CARD------------------------------------
+.NCard {
+  .card .card-body {
+    padding: 15px;
+  }
+
+  .title {
+    font-weight: bold;
+    color: blue;
+    font-family: Verdana;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .number {
+    font-weight: bold;
+    color: red;
+    font-size: 25px;
+  }
+}
+
+//------------CARD------------------------------------
+//------------TABLE-----------------------------------
+.table-divided td,
+.table-divided th {
+  padding: 15px;
+}
+
+.NTable {
+  .table-divided th {
+    font-family: Genos;
+    font-weight: 700;
+    font-size: 15px;
+  }
+}
+
+.modal-right .modal-dialog {
+  max-width: 1020px;
+}
+
+.nTextNotification .card {
+  height: calc(100vh - 220px);
+}
+
+.chat-app .ps-container {
+  height: calc(100vh - 100px - 195px);
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: red;
+  font-weight: bold;
+  background-color: cornsilk;
+}
+
+.NKhungChat:focus {
+  background-color: yellow;
+}
+
+.NTableScroll {
+  .vuetable-body-wrapper {
+    height: 530px !important;
+  }
+}
+
+.NBadge {
+  font-size: 8px;
+}
+
+//------------TABLE-----------------------------------
+//------------Button chức năng------------------------
+.NButton_DropDown {
+  font-family: Genos;
+  font-weight: 700;
+
+  .dropdown-item {
+    color: #3a3a3a;
+    padding-left: 15px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+
+    .content {
+      font-weight: 700;
+      font-size: 18px;
+      margin-left: 5px;
+    }
+  }
+
+  /* .dropdown-item:hover, .dropdown-item:focus {
+     background-color: #8a9fb4;
+     color: red !important;
+   }*/
+
+  .dropdown-divider {
+    margin: 5px;
+  }
+}
+
+.NButton_DropDown2 {
+  padding: 0 !important;
+
+  .btn {
+    padding: 0 !important;
+  }
+}
+
+//----------------------------------------------------
+.NFontTexturina {
+  font-family: "Texturina", serif;
+}
+
+.NTitleDataInTable {
+  font-family: Verdana;
+  font-weight: 700;
+}
+
+.nFontButtonHeader {
+  // font-family: 'Texturina', serif;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: green;
+  border-color: green;
+}
+
+.nFontTitleTable {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nHeight_60 {
+  height: 60px;
+}
+
+.nHeight_150 {
+  height: 150px;
+}
+
+//---------------------Loader---------------
+#main-loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(50, 65, 72, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+#main-loading .main-loading-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Line */
+.main-loading-container .ring {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: -30px;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  border-top: 4px solid #24ecff;
+}
+
+/* Head of line */
+.main-loading-container .ring::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background: #24ecff;
+  box-shadow: 0 0 0 5px #24ecff33, 0 0 0 10px #24ecff22, 0 0 0 20px #24ecff11,
+  0 0 40px #24ecff, 0 0 50px #24ecff;
+}
+
+/* Circle Position & Animation */
+.main-loading-container .ring:nth-child(1) {
+  animation: circle2 2s linear infinite;
+}
+
+.main-loading-container .ring:nth-child(2) {
+  animation: circle1 2s linear infinite;
+}
+
+.main-loading-container .ring:nth-child(3) {
+  position: absolute;
+  top: -66.66px;
+  animation: circle 2s linear infinite;
+}
+
+/* Loading Text */
+.main-loading-container p {
+  position: absolute;
+  color: #fff;
+  font-size: 32px;
+  bottom: -120px;
+  letter-spacing: 4px;
+}
+
+/* Animation */
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circle1 {
+  0% {
+    transform: rotate(120deg);
+  }
+  100% {
+    transform: rotate(480deg);
+  }
+}
+
+@keyframes circle2 {
+  0% {
+    transform: rotate(240deg);
+  }
+  100% {
+    transform: rotate(600deg);
+  }
+}
+
+//----------------------------------------------------
+//---------------------IN THẺ SPORT-------------------
+.print-card-sport {
+  .khung-01,
+  .khung-02,
+  .khung-03,
+  .khung-04 {
+    /*position: absolute;
+    top: 520px;
+    width: 130%;*/
+    position: absolute;
+    top: 180px;
+    width: 100%;
+
+    .anh_01 {
+      .img_avatar {
+        /*width: 260px !important;
+        height: 320px !important;
+        margin-left: 60px;*/
+        width: 100px !important;
+        height: 130px !important;
+        margin-left: 15px;
+      }
+
+      .so_bao_danh {
+        /*position: absolute;
+        font-weight: 700;
+        font-family: Genos;
+        color: blue;
+        font-size: 25px;
+        margin-top: 325px;
+        margin-left: -190px;*/
+        position: absolute;
+        font-weight: 700;
+        font-family: Genos;
+        color: blue;
+        font-size: 16px;
+        margin-top: 117px;
+        margin-left: -85px;
+      }
+    }
+
+    .mon-thi_01 {
+      margin-left: 40%;
+      font-size: 18px;
+
+      .pLeft {
+        float: left;
+      }
+
+      .pRight {
+        float: right;
+      }
+
+      .tieu_de {
+        font-weight: bold;
+      }
+
+      .noi_dung {
+        font-weight: bold;
+        color: blue;
+      }
+    }
+
+    .thong_tin {
+      /*position: absolute;
+      font-weight: 700;
+      font-family: Genos;
+      margin-top: 220px;
+      width: 105%;*/
+      position: absolute;
+      font-weight: 700;
+      font-family: Genos;
+      margin-top: 75px;
+      width: 48%;
+
+      .ho_ten {
+        color: red;
+        margin: 0 auto;
+        font-size: 22px;
+      }
+
+      .don_vi {
+        color: blue;
+        font-size: 16px;
+        margin-top: -10px;
+      }
+
+      .mon_thi {
+        font-size: 13px;
+        font-weight: bold;
+        color: black;
+        margin-top: -5px;
+      }
+    }
+  }
+
+  .khung-02,
+  .khung-04 {
+    margin-left: 372px;
+  }
+
+  .khung-03,
+  .khung-04 {
+    margin-top: 508px;
+  }
+}
+
+.list-item-heading {
+  font-size: 14px;
+}
+
+.nPadding_Left_15 {
+  padding-left: 15px;
+}
+
+#WorkManagerContent {
+  .ql-editor {
+    min-height: 350px;
+  }
+}
+
+.collapseAccordion .border {
+  border: 1px solid chocolate !important;
+}
+
+//==========================================================TREEVIEW====================================================
+.tree {
+  text-align: justify;
+  overflow: hidden;
+  //overflow-x: auto;
+}
+
+.scrollBar_v4 {
+  min-height: 300px;
+  //margin-left: 30px;
+  //float: left;
+  //height: 300px;
+  //width: 65px;
+  //background: #F5F5F5;
+  //overflow-y: scroll;
+  //margin-bottom: 25px;
+}
+
+.scrollBar_v4::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+.scrollBar_v4::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+.scrollBar_v4::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border: 2px solid #555555;
+}
+
+.scrollBar_v4::-webkit-scrollbar-button {
+  width: 0px !important; //for horizontal scrollbar
+  height: 0px !important; //for vertical scrollbar
+}
+
+::-webkit-scrollbar-track {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+//======================================================================================================================
+
+//----------------------------------------------------
+//----------------------------------------------------
+
+//-------------------SUPPORT---------------------------
+.contactRightButton {
+  position: fixed;
+  z-index: 99999;
+  bottom: 120px;
+  right: 50px;
+
+  .support {
+    margin-bottom: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 270px;
+  }
+
+  a:hover {
+    color: red !important;
+  }
+
+  .items-support {
+    .title {
+      font-weight: bold;
+      color: blue;
+
+      :hover {
+        color: red !important;
+      }
+    }
+  }
+
+  .items-hr {
+
+  }
+}
+
+//-----------------------------------------------------
+//------------------------TOP-NAV----------------------
+.navbar .notificationDropdown {
+  width: 350px;
+}
+
+.NTopNav {
+  .title {
+    text-align: justify;
+    font-family: inherit;
+  }
+
+  .date {
+    font-weight: bold;
+    color: blue !important;
+  }
+
+  .active {
+    font-weight: bold;
+    color: red;
+  }
+}
+
+//-----------------------------------------------------
+.fr-box.fr-basic .fr-wrapper {
+  min-height: 250px;
+}
+
+@media only screen and (max-width: 1366px) {
+  main {
+    margin-left: 130px;
+    margin-top: 80px;
+    margin-right: 20px;
+  }
+  .menu-sub-hidden main {
+    margin-left: 130px;
+  }
+  .khungdangnhap {
+    margin-top: 40px;
+  }
+  .NFontGenos {
+    .ho_ten {
+      font-size: 20px !important;
+      color: blue;
+    }
+
+    .don_vi {
+      font-size: 15px !important;
+    }
+
+    .dem_nguoc {
+      .flip-card {
+        font-size: 45px !important;
+      }
+    }
+  }
+  .NTableScroll {
+    .vuetable-body-wrapper {
+      height: 530px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  main {
+    margin-left: 130px;
+    margin-top: 80px;
+    margin-right: 20px;
+  }
+  .menu-sub-hidden main {
+    margin-left: 130px;
+  }
+  .khungdangnhap {
+    margin-top: 20px;
+  }
+  .NFontGenos {
+    .ho_ten {
+      font-size: 15px !important;
+      color: blue;
+    }
+
+    .don_vi {
+      font-size: 14px !important;
+    }
+
+    .dem_nguoc {
+      .flip-card {
+        font-size: 25px !important;
+      }
+    }
+  }
+  .nTextNotification .card {
+    height: calc(100vh - 245px);
+  }
+  .chat-app .ps-container {
+    height: calc(100vh - 100px - 250px);
+  }
+  .NTableScroll {
+    .vuetable-body-wrapper {
+      height: calc(100vh - 510px) !important;
+    }
+  }
+}
+
+.prioty_span {
+  position: absolute;
+  top: -41px;
+  left: -22px;
+  // background-color: red;
+  width: 100px;
+  color: whitesmoke;
+  font-weight: 700;
+}
+
+.prioty_numberOfDay_span {
+  position: absolute;
+  top: 35px;
+  left: -16px;
+  // background-color: red;
+  width: 93px;
+  color: whitesmoke;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.button_action {
+  font-size: 20px;
+  font-weight: bold;
+  color: darkslategray
+}
+
+.workDetail {
+  /* Timeline Container */
+  .timeline {
+    background: transparent;
+    margin: 0px auto;
+    padding: 0px;
+  }
+
+  /* Outer Layer with the timeline border */
+  .outer {
+    border-left: 5px solid red;
+  }
+
+  /* Card container */
+  .card {
+    position: relative;
+    margin: 0 0 10px 20px;
+    padding: 10px;
+    background: antiquewhite;
+    color: gray;
+    border-radius: 8px;
+    max-width: 600px;
+  }
+
+  /* Information about the timeline */
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .content {
+      color: black;
+      text-align: justify;
+      overflow: hidden;
+      height: 40px;
+      margin-bottom: 0px !important;
+    }
+
+    .viewAll {
+      font-size: 10px;
+      font-weight: 700;
+      font-family: monospace;
+      float: right;
+      color: blue;
+      text-align: right;
+    }
+
+    .viewAll:hover {
+      color: red !important;
+      margin-right: 5px;
+      -webkit-animation: linear infinite;
+      -webkit-animation-name: run;
+      -webkit-animation-duration: 5s;
+    }
+  }
+
+  /* Title of the card */
+  .title {
+    color: blue;
+    position: relative;
+    margin-bottom: 0px !important;
+    font-size: 15px;
+    font-weight: bold;
+
+    .title_time {
+      font-size: 8px;
+      font-weight: bold;
+      float: right;
+      color: red;
+    }
+  }
+
+  /* Timeline dot  */
+  .title::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 999px;
+    left: -38px;
+    border: 3px solid orangered;
+  }
+
+  .divider {
+    //border-bottom: 1px solid whitesmoke;
+    //font-size: 10px;
+    //font-weight: bold;
+  }
+}
+
+.table thead th {
+  vertical-align: middle !important;
+}
+
+.ql-editor {
+  height: 100% !important;
+}
+
+.dropdown-item {
+  padding: 0.05rem 1.5rem;
+  color: #3a3a3a;
+}
+
+.custom-control-label {
+  cursor: pointer;
+}
+
+.loading_css {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.table_title_name {
+  font-weight: bold;
+  color: blue;
+  font-family: Verdana;
+  font-size: 13px;
+}
+
+.table_title_name:hover {
+  color: red !important;
+}
+
+.table_title_name_NoColor {
+  font-family: Verdana;
+  font-size: 13px;
+
+  .active {
+    font-weight: bold;
+    color: red !important;
+  }
+}
+
+.img-library {
+  width: 100% !important;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 1366px) {
+  .modal-xl {
+    max-width: 180vh;
+  }
+}
+
+@media only screen and (max-width: 815px) {
+  .khungviendangnhap {
+    margin-top: 30px;
+  }
+  .khungdangnhap {
+    margin-top: 0px;
+  }
+  .khungdangnhap .dangnhap {
+    width: 100%;
+  }
+  .tieude_chao_login {
+    display: none;
+  }
+  .header_title {
+    display: block;
+    width: 85%;
+    margin: -15px auto;
+
+    .tieu_de_01 {
+      font-size: 19px !important;
+    }
+
+    .tieu_de_02 {
+      font-size: 19px !important;
+    }
+  }
+  .header_title_mobile {
+    display: none;
+  }
+  .htkt {
+    font-size: 15px;
+  }
+  .menu-sub-hidden main,
+  .menu-hidden main {
+    margin-left: 110px;
+  }
+  main {
+    margin-left: 130px;
+    margin-top: 80px;
+    margin-right: 20px;
+  }
+  .notification_left {
+    width: 100% !important;
+  }
+  .notification_right {
+    display: none !important;
+  }
+  .NTableScroll {
+    .vuetable-body-wrapper {
+      height: 200px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .khungdangnhap {
+    margin-top: 0px;
+  }
+  .khungdangnhap .dangnhap {
+    width: 100%;
+  }
+  .header_title {
+    display: none;
+  }
+  .header_title_mobile {
+    display: block;
+    color: red;
+    font-size: 15px;
+    margin: -15px auto !important;
+  }
+  .NFontGenos {
+    .tieu_de_01 {
+      font-size: 12px !important;
+    }
+
+    .dem_nguoc {
+      .flip-card {
+        font-size: 25px !important;
+      }
+    }
+  }
+  .nTextNotification .card {
+    height: calc(100vh - 220px);
+  }
+  .chat-app .ps-container {
+    height: calc(100vh - 100px - 222px);
+  }
+  .notification_left {
+    width: 100% !important;
+  }
+  .notification_right {
+    display: none !important;
+  }
+  main {
+    margin-left: 110px;
+    margin-top: 80px;
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .header_title {
+    display: none;
+  }
+  .header_title_mobile {
+    display: block;
+    color: red;
+    font-size: 15px;
+    width: 85%;
+    margin: -15px auto !important;
+
+    .tieu_de_01 {
+      font-size: 14px !important;
+    }
+
+    .tieu_de_02 {
+      font-size: 14px !important;
+    }
+
+    .tieu_de_03 {
+      font-size: 14px !important;
+    }
+  }
+  .tieude_chao_login {
+    display: none;
+  }
+  .khungdangnhap {
+    margin-top: 10px;
+  }
+  .navbar .navbar-logo {
+    width: 80% !important;
+  }
+  .NTableScroll {
+    .vuetable-body-wrapper {
+      height: calc(100vh - 475px) !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  main {
+    margin-top: 75px !important;
+  }
+  .chat-app .ps-container {
+    height: calc(100vh - 100px - 250px);
+  }
+}

@@ -1,0 +1,17 @@
+export default {
+  SERVER_FILE_UPLOAD_FILE: "ServerFile/upload-file",
+  SERVER_FILE_UPLOAD_FILE_ATTACK: "ServerFile/upload-file-attack",
+  SERVER_FILE_UPLOAD_FILE_ATTACK_PEOPLE: "ServerFile/upload-file-attack-peoples",
+  SERVER_FILE_PAGING: "ServerFile/get-paging",
+  SERVER_FILE_PAGING_BY_ID: "ServerFile/get-paging-by-id",
+  SERVER_FILE_DELETE: "ServerFile/delete",
+  SERVER_FILE_UPDATE_FILENAME: "ServerFile/update-file-name",
+  SERVER_FILE_UPDATE_FILE_NAME_FILE: "ServerFile/update-file-name-file",
+  SERVER_FILE_FOLDER_GET_BY_ID: "ServerFile/get-by-folder-id",
+  SERVER_FILE_DETAIL_GET_BY_ID: "ServerFile/get-detail-by-id",
+  SERVER_FILE_UPDATE_PARENT: "ServerFile/parent-update",
+  SERVER_FILE_VIEW_FILE: "ServerFile/view-file",
+  SERVER_FILE_VIEW_FILE_LINK: "ServerFile/view-file-link",
+  SERVER_FILE_CALL_DE_QUY: "ServerFile/call-de-quy",
+  SERVER_FILE_RESIZE_IMAGE_TYPE: "ServerFile/resize-image-type",
+};

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+	      name="viewport"/>
+	<title>HỆ THỐNG QUẢN TRỊ WEBSITE</title>
+
+	<style>
+		.loading {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			border: 2px solid rgba(0, 0, 0, 0.2);
+			border-radius: 50%;
+			border-top-color: rgba(0, 0, 0, 0.4);
+			animation: spin 1s ease-in-out infinite;
+			-webkit-animation: spin 1s ease-in-out infinite;
+			left: calc(50%);
+			top: calc(50%);
+			position: fixed;
+			z-index: 1;
+		}
+
+		@keyframes spin {
+			to {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+
+		@-webkit-keyframes spin {
+			to {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+<noscript>
+	BẠN CẦN KÍCH HOẠT JAVASCRIPT ĐỂ CHẠY PHẦN MỀM
+</noscript>
+<div id="main-loading">
+	<div class="main-loading-container">
+		<div class="ring"></div>
+		<div class="ring"></div>
+		<div class="ring"></div>
+	</div>
+</div>
+<div id="app">
+	<div class="loading"></div>
+</div>
+<!--
+This HTML file is a template.
+If you open it directly in the browser, you will see an empty page.
+
+You can add webfonts, meta tags, or analytics to this file.
+The build step will place the bundled scripts into the <body> tag.
+
+To begin the development, run `npm run dev` or `yarn dev`.
+To create a production bundle, use `npm run prod` or `yarn prod`.
+-->
+</body>
+<!--<script src="../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>-->
+<!--<script src="../node_modules/@ckeditor/ckeditor5-vue2/dist/ckeditor.js"></script>-->
+<!--<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>-->
+<!--<script>-->
+<!--    window.OneSignal = window.OneSignal || [];-->
+<!--    OneSignal.push(function() {-->
+<!--        OneSignal.init({-->
+<!--            appId: "921d4542-6abf-432b-a788-e6810fb43617",-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+</html>

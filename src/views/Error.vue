@@ -1,0 +1,60 @@
+<template>
+  <div id="root">
+    <div class="fixed-background">
+      <main>
+        <div class="container">
+          <b-row class="h-100">
+            <b-colxx xxs="12" md="10" class="mx-auto my-auto">
+              <b-card class="auth-card" no-body>
+                <div class="position-relative image-side">
+                  <p class="text-white h2">MAGIC IS IN THE DETAILS</p>
+                  <p class="white mb-0">Yes, it is indeed!</p>
+                </div>
+                <div class="form-side">
+                  <router-link to="/">
+                    <span class="logo-single"/>
+                  </router-link>
+                  <h6 class="mb-4"></h6>
+                  <p class="mb-0 text-muted text-small mb-0"></p>
+<!--                  <h6 class="mb-4">{{ $t("pages.error-title") }}</h6>-->
+<!--                  <p class="mb-0 text-muted text-small mb-0">{{ $t("pages.error-code") }}</p>-->
+<!--                  <p class="display-1 font-weight-bold mb-5">404</p>-->
+                  <p class="display-1 font-weight-bold mb-5">Xử lý file từ link</p>
+                  <b-button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    class="btn-shadow"
+                    @click="goBack"
+                  >{{ $t("pages.go-back-home") }}
+                  </b-button>
+                </div>
+              </b-card>
+            </b-colxx>
+          </b-row>
+        </div>
+      </main>
+    </div>
+  </div>
+</template>
+<script>
+import {adminRoot} from '../constants/config';
+
+export default {
+  methods: {
+    goBack() {
+      this.$router.push(adminRoot);
+    },
+  },
+  mounted: function () {
+    const url = window.location.href
+    console.log(url.split(window.location.origin + '/app/link/'))
+    localStorage.setItem('urlLink', url.split(window.location.origin + '/app/link/'))
+    window.location.href = window.location.origin + '/app/link/read-link'
+    document.body.classList.add("background");
+  },
+  beforeDestroy() {
+    document.body.classList.remove("background");
+  },
+};
+</script>

@@ -1,0 +1,18 @@
+export default {
+  GET_PAGING: "HealthHandbookManager/get-paging",
+  GET_PAGING_CUSTOMER_CARE: "HealthHandbookManager/get-paging-customer-care",
+  GET_PAGING_ABOUT: "HealthHandbookManager/get-paging-about",
+  GET_PAGING_ATTACK: "HealthHandbookManager/get-paging-attack",
+  COMBOBOX: "HealthHandbookManager/get-combobox",
+  COMBOBOX_ABOUT_MANAGER: "HealthHandbookManager/get-combobox-about-manager",
+  COMBOBOX_LIST_ABOUT_MANAGER: "HealthHandbookManager/combobox-list-about-manager",
+  CREATE: "HealthHandbookManager/create",
+  CREATE_ATTACK: "HealthHandbookManager/create-attack",
+  UPDATE: "HealthHandbookManager/update",
+  UPDATE_ATTACK: "HealthHandbookManager/update-attack",
+  UPDATE_DETAIL: "HealthHandbookManager/update-detail",
+  DELETE: "HealthHandbookManager/delete",
+  DELETE_ATTACK: "HealthHandbookManager/delete-attack",
+  GET_BY_ID: "HealthHandbookManager/get-by-id",
+  GET_DETAIL: "HealthHandbookManager/get-detail",
+};
