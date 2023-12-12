@@ -174,7 +174,7 @@ export default {
           isNoHeader: false,
           api: staffManagerApi.USER_COMBOBOX,
           isAdd: val.type === "add",
-          dataSend: val.staffId === NCoreConfig.isGuidEmpty ? null : val.data.staffId
+          dataSend: val.staffId === NCoreConfig.isGuidEmpty ? null : val?.data?.staffId
         });
         this.$hideAllPageLoading()
       }
