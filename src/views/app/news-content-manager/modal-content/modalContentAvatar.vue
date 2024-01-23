@@ -74,7 +74,7 @@ export default {
   methods: {
     ...mapActions(['callStoreSendLibraryModal']),
     handleInit() {
-      console.log('dataImage', dataImage)
+      console.log('dataImage', this.dataImage)
       this.sourceId = this.dataImage.avatarId;
       this.sourceLink = this.dataImage.avatar;
     },
@@ -245,7 +245,6 @@ export default {
           this.sourceLink = this.cutLinkLocal(newdataImage.avatar);
           this.sourceId = newdataImage.avatarId
         }
-
       },
       deep: true
     },

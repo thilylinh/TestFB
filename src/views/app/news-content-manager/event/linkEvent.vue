@@ -4,8 +4,8 @@
       <b-row>
         <b-colxx xxs="12">
           <h1 class="NHeaderPage">{{ pageTitle }}</h1>
-          <piaf-breadcrumb/>
-          <div class="separator mb-2"/>
+          <piaf-breadcrumb />
+          <div class="separator mb-2" />
         </b-colxx>
       </b-row>
       <template>
@@ -15,9 +15,8 @@
               <label class="font-weight-700">1. Thể loại <span class="nRequired">(*)</span> </label>
             </b-colxx>
             <b-colxx xxs="12">
-              <n-core-tree-select :data-combobox="comboboxFather"
-                                  ref="refNewsContentEvent_TreeViewNewsGroup"
-                                  @handlerSubmitEvent="subEvNewsContentEvent_TreeViewNewsGroup"/>
+              <n-core-tree-select :data-combobox="comboboxFather" ref="refNewsContentEvent_TreeViewNewsGroup"
+                @handlerSubmitEvent="subEvNewsContentEvent_TreeViewNewsGroup" />
             </b-colxx>
           </b-row>
           <b-row class="mt-2">
@@ -25,12 +24,8 @@
               <label class="font-weight-700">2. Tiêu đề bài viết <span class="nRequired">(*)</span> </label>
             </b-colxx>
             <b-colxx xxs="12">
-              <b-form-input id="newsContentEvent_txtTitle"
-                            v-model="$v.form.name.$model"
-                            :state="!$v.form.name.$error"
-                            autocomplete="off"
-                            autofocus
-                            placeholder="Nhập tiêu đề bài viết ..."/>
+              <b-form-input id="newsContentEvent_txtTitle" v-model="$v.form.name.$model" :state="!$v.form.name.$error"
+                autocomplete="off" autofocus placeholder="Nhập tiêu đề bài viết ..." />
               <b-form-invalid-feedback v-if="!$v.form.name.required">
                 Không được bỏ trống
               </b-form-invalid-feedback>
@@ -39,9 +34,7 @@
               </b-form-invalid-feedback>
             </b-colxx>
             <b-colxx xxs="12">
-              <b-form-checkbox v-model="isMinusWord"
-                               unchecked-value="not_accepted"
-                               value="accepted">
+              <b-form-checkbox v-model="isMinusWord" unchecked-value="not_accepted" value="accepted">
                 <span class="nHover selectCombobox">Tự động thay thế từ cấm</span>
               </b-form-checkbox>
             </b-colxx>
@@ -53,7 +46,7 @@
                   <label class="font-weight-700">3. Ảnh đại diện</label>
                 </b-colxx>
               </b-row>
-              <modal-content-avatar ref="refNewsContentEvent_ModalContentAvatar"/>
+              <modal-content-avatar ref="refNewsContentEvent_ModalContentAvatar" :dataImage=form.avatarlink />
             </b-col>
             <b-col xs="12" sm="6" md="8" lg="9">
               <b-row>
@@ -64,14 +57,11 @@
                   <b-input-group>
                     <b-input-group-prepend>
                       <b-button variant="primary" @click="openSeoPagingModal()">
-                        <i class="simple-icon-layers"/>
+                        <i class="simple-icon-layers" />
                       </b-button>
                     </b-input-group-prepend>
-                    <b-form-input id="newsContentEvent_txtSeoKeyWord"
-                                  v-model="$v.form.seoKeyword.$model"
-                                  :state="!$v.form.seoKeyword.$error"
-                                  autocomplete="off"
-                                  placeholder="Nhập từ khóa Seo ..."/>
+                    <b-form-input id="newsContentEvent_txtSeoKeyWord" v-model="$v.form.seoKeyword.$model"
+                      :state="!$v.form.seoKeyword.$error" autocomplete="off" placeholder="Nhập từ khóa Seo ..." />
                   </b-input-group>
                 </b-colxx>
               </b-row>
@@ -81,7 +71,7 @@
                 </b-colxx>
                 <b-colxx xxs="12">
                   <textarea v-model="$v.form.summary.$model" rows="5" placeholder="Nhập tóm tắt bài viết"
-                            class="form-control"/>
+                    class="form-control" />
                 </b-colxx>
               </b-row>
               <b-row class="mt-2">
@@ -89,16 +79,11 @@
                   <label class="font-weight-700">6. Link Tree </label>
                 </b-col>
                 <b-col lg="12" md="12" sm="12" xs="12">
-                  <b-form-input id="menuFunctionManagerEvent_txtlinkTree"
-                                v-model="$v.form.linkTree.$model"
-                                :state="!$v.form.linkTree.$error"
-                                autocomplete="off"
-                                placeholder="Nhập linkTree ..."/>
+                  <b-form-input id="menuFunctionManagerEvent_txtlinkTree" v-model="$v.form.linkTree.$model"
+                    :state="!$v.form.linkTree.$error" autocomplete="off" placeholder="Nhập linkTree ..." />
                 </b-col>
                 <b-col lg="12" md="12" sm="12" xs="12">
-                  <b-form-checkbox v-model="agreeViaCheckbox"
-                                   unchecked-value="not_accepted"
-                                   value="accepted">
+                  <b-form-checkbox v-model="agreeViaCheckbox" unchecked-value="not_accepted" value="accepted">
                     <span class="nHover selectCombobox">Duyệt Via</span>
                   </b-form-checkbox>
                 </b-col>
@@ -110,31 +95,26 @@
               <label class="font-weight-700">7. Nội dung bài viết <span class="nRequired">(*)</span> </label>
             </b-colxx>
             <b-colxx xxs="12" class="mt-1">
-<!--              <content-editor ref="refHtmlContent"-->
-<!--                              :data-html-editor="form.content"/>-->
+              <!--              <content-editor ref="refHtmlContent"-->
+              <!--                              :data-html-editor="form.content"/>-->
               <ckeditor :editor="editor" v-model="form.content" :config="editorConfig"></ckeditor>
             </b-colxx>
           </b-row>
           <b-row class="mt-2">
             <b-colxx xxs="12">
-              <n-core-button-run3 :btn-cancel="'Quay về'"
-                                  :btn-save-title="'Lưu bài viết'"
-                                  :show-btn-copy-link="showBtnCopyLink"
-                                  ref="refBtnNewsContentEvent"
-                                  @submitEvent="subEvNewsContentEvent_BtnSave"
-                                  @onSaveUpdate="onSaveUpdate"
-                                  @copyLink="copyLink"/>
+              <n-core-button-run3 :btn-cancel="'Quay về'" :btn-save-title="'Lưu bài viết'"
+                :show-btn-copy-link="showBtnCopyLink" ref="refBtnNewsContentEvent"
+                @submitEvent="subEvNewsContentEvent_BtnSave" @onSaveUpdate="onSaveUpdate" @copyLink="copyLink" />
             </b-colxx>
           </b-row>
         </b-card>
       </template>
     </b-colxx>
     <news-seo-key-word-paging-model ref="refNewsContent_NewsSeoKeyWordPagingModel"
-                                    @handlerSubmitEvent="subEvNewsContent_NewsSeoKeyWordPagingModel"/>
-    <n-core-date-picker ref="refNewsContent_DatePicker"
-                        @handleSubmitEvent="subEvNewsContent_DatePicker"/>
+      @handlerSubmitEvent="subEvNewsContent_NewsSeoKeyWordPagingModel" />
+    <n-core-date-picker ref="refNewsContent_DatePicker" @handleSubmitEvent="subEvNewsContent_DatePicker" />
     <news-content-type-combobox-model ref="refNewsContent_NewsContentTypeComboboxModel"
-                                      @handlerSubmitEvent="subEvNewsContent_NewsContentTypeComboboxModel"/>
+      @handlerSubmitEvent="subEvNewsContent_NewsContentTypeComboboxModel" />
     <!--    //===========================================NEWS-CONTENT-TYPE======================================================-->
     <!--    <modal-content-image ref="refNewsContent_ModalContentImage"-->
     <!--                         @handlerSubmitEvent="subEvNewsContent_ModalContentImage"/>-->
@@ -146,7 +126,7 @@
     <!--    //==================================================================================================================-->
     <!--    //================================================QUESTION==========================================================-->
     <n-core-modal-question ref="refNewsContent_NCoreModalQuestion"
-                           @handleSubmitEvent="subEvNewsContent_NCoreModalQuestion"/>
+      @handleSubmitEvent="subEvNewsContent_NCoreModalQuestion" />
     <!--    //==================================================================================================================-->
   </b-row>
 </template>
@@ -154,15 +134,15 @@
 
 import NCoreHelper from "../../../NCoreHelper/NCoreHelper";
 import NCoreConfig from "../../../NCoreHelper/NCoreConfig";
-import {maxLength, required} from "vuelidate/lib/validators";
-import {validationMixin} from "vuelidate";
+import { maxLength, required } from "vuelidate/lib/validators";
+import { validationMixin } from "vuelidate";
 import Datepicker from "vuejs-datepicker";
 import NCoreHtmlEditor from "@/containers/ndev-core/components/NCoreHtmlEditor";
 import NCoreButtonRun from "@/containers/ndev-core/components/NCoreButtonRun";
 import newsGroupApi from "@/views/app/news-content-manager/api/newsGroupApi";
 import NCoreTreeSelect from "@/containers/ndev-core/components/NCoreTreeSelect";
 import NCoreCombobox from "@/containers/ndev-core/components/NCoreCombobox";
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 import NewsSeoKeyWordPagingModel from "../combobox/newsSeoKeyWordPagingModel";
 import NCoreDatePicker from "../../../../containers/ndev-core/components/NCoreDatePicker";
 import NewsContentTypeComboboxModel from "@/views/app/news-content-manager/combobox/newsContentTypeComboboxModel";
@@ -226,6 +206,7 @@ export default {
         linkRoot: '',
         agreeVia: '',
         linkTree: '',
+        avatarlink: {}
       },
       isStatusContent: NCoreConfig.checkedValue,
       newsGroupTypeReciveFromCombobox: null,
@@ -326,6 +307,7 @@ export default {
             agreeVia: this.agreeViaCheckbox === NCoreConfig.checkedValue,
             linkTree: this.form.linkTree,
             avatarId: iAvatar.id,
+            avatarLink: iAvatar.link,
             dateTimeStart: Date.now().toLocaleString(),
             attackViewId: 0,
             statusId: this.isStatusContent === NCoreConfig.checkedValue ? 3 : 4,
@@ -400,6 +382,7 @@ export default {
           agreeVia: this.agreeViaCheckbox === NCoreConfig.checkedValue,
           linkTree: this.form.linkTree,
           avatarId: iAvatar.id,
+          avatarLink: iAvatar.link,
           dateTimeStart: this.form.dateTimeStart,
           attackViewId: 0,
           statusId: this.isStatusContent === NCoreConfig.checkedValue ? 3 : 4,
@@ -435,7 +418,7 @@ export default {
       }
     },
     async copyLink() {
-      const result = await NCoreHelper.v2executeGET(this, newsContentApi.COPY_LINK, {id: this.$route.params.id});
+      const result = await NCoreHelper.v2executeGET(this, newsContentApi.COPY_LINK, { id: this.$route.params.id });
       const textarea = document.createElement('textarea');
       // textarea.value = val.domain + '' + val.metaName + '-' + val.metaKey
       textarea.value = result[0].name
@@ -770,7 +753,7 @@ export default {
     formatContent(content) {
       let parser = new DOMParser()
       let document = parser.parseFromString(content, 'text/html');
-      
+
       const remove_internal_links = true
       const remove_external_links = true
       // const listNodeName=['A','href','U','IFRAME','#text','AMP-IMG']
@@ -974,7 +957,13 @@ export default {
       id: urlLink
     })
 
-    //this.form.content = this.formatContent(result.body)
+    console.log("result123", result)
+
+    this.form.content = result.body
+    this.form.avatarlink = {
+      avatar: result.imageLink,
+      avatarId: result.imageId
+    }
     this.pageTitle = "Thêm mới bài viết từ link"
     this.form.newsGroupId = NCoreConfig.isGuidEmpty //null
     this.form.dateTimeStart = this.returnDeadLine();

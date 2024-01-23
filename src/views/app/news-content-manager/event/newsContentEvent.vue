@@ -305,7 +305,6 @@ export default {
           const dataSend = {
             name: this.form.name,
             summary: this.form.summary,
-            avatarLink: iAvatar.link,
             content: iContent,
             author: this.form.author,
             urlRootLink: this.form.urlRootLink,
@@ -315,6 +314,7 @@ export default {
             agreeVia: this.agreeViaCheckbox === NCoreConfig.checkedValue,
             linkTree: this.form.linkTree,
             avatarId: iAvatar.id,
+            avatarLink: iAvatar.link,
             dateTimeStart: this.form.dateTimeStart,
             attackViewId: 0,
             statusId: this.isStatusContent === NCoreConfig.checkedValue ? 3 : 4,
@@ -396,6 +396,7 @@ export default {
           agreeVia: this.agreeViaCheckbox === NCoreConfig.checkedValue,
           linkTree: this.form.linkTree,
           avatarId: iAvatar.id,
+          avatarLink: iAvatar.link,
           dateTimeStart: this.form.dateTimeStart,
           attackViewId: 0,
           statusId: this.isStatusContent === NCoreConfig.checkedValue ? 3 : 4,
