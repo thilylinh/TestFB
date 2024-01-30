@@ -215,7 +215,6 @@ export default {
       },
       newsGroupTypeReciveFromCombobox: [],
       nguoiQuanLyReciveFromCombobox: [],
-      treeViewNewsGroupReceivedCombobox: []
     };
   },
   watch: {
@@ -250,9 +249,6 @@ export default {
           this.form.domainVercel = val.data.domainVercel;
           this.agreeViaCheckbox = val.data.agreeVia ? NCoreConfig.checkedValue : NCoreConfig.uncheckedValue;
           this.showMain = val.data.agreeVia ? NCoreConfig.checkedValue : NCoreConfig.uncheckedValue;
-          this.treeViewNewsGroupReceivedCombobox = {
-            dataContentId: this.form.newsGroupId
-          }
         }
         // console.log(val.data)
         //=====Lấy dữ liệu combobox NewsGroupType=====
@@ -297,15 +293,12 @@ export default {
       this.form.code = "";
       this.form.staffId = "";
       this.form.domainVercel = "";
+      this.form.newsGroupId = "";
     },
     async subEvNewsGroupEvent(isSave) {
-      if (this.treeViewNewsGroupReceivedCombobox === null ||
-        this.treeViewNewsGroupReceivedCombobox === undefined ||
-        this.treeViewNewsGroupReceivedCombobox.length === 0) {
-        this.form.newsGroupId = NCoreConfig.isGuidEmpty;
-      } else {
-        this.form.newsGroupId = this.treeViewNewsGroupReceivedCombobox.dataContentId;
-      }
+      if (!this.form.newsGroupId) {
+          this.form.newsGroupId = NCoreConfig.isGuidEmpty;
+        }
       if (isSave === true) {
         this.$v.$touch();
         this.$v.form.$touch();
@@ -411,7 +404,7 @@ export default {
       });
     },
     async subEvNewsGroupEvent_TreeViewNewsGroup(val) {
-      this.treeViewNewsGroupReceivedCombobox = val
+      this.form.newsGroupId = val?.dataContentId
     },
     async subEvNguoiQuanLy(val) {
       this.$showLoadingRunFunctionInModal()

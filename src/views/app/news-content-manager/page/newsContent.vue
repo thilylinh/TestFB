@@ -8,7 +8,7 @@
             <n-button-default-add-new ref="refNewsContentButtonDefaultAddNew"
               @handlerSubmitEvent="subEvNewsContentButtonDefaultAddNew" />
           </div>
-         
+
           <div class="mb-2">
             <n-button-default-display-option />
             <b-collapse id="displayOptions" class="d-md-block">
@@ -34,14 +34,17 @@
       </b-row>
       <template>
         <n-core-skeleton :flag-group="3" />
-        <b-row v-show="!$store.state.componentLoading">
+        <b-row v-if="!$store.state.componentLoading">
           <b-colxx xxs="12" class="NTable">
             <vuetable ref="projectManagerTableRef" :api-mode="false" :data="dataPage" :fields="fields"
               :no-data-template="noDataTemplate" :reactive-api-url="true" class="table-divided order-with-arrow">
               <template slot="avatar" slot-scope="props">
-                <img class="img_avatar_table" :src="returnAvatar(props.rowData)" />
-                <!-- <b-img-lazy class="img_avatar_table" loading="lazy" v-lazy="returnAvatar(props.rowData)"
-                  :src="returnAvatar(props.rowData)" @click="showImagePopup(props.rowData)"></b-img-lazy> -->
+                <b-img-lazy
+                  class="img_avatar_table"
+                  :src="returnAvatar(props.rowData)"
+                  @click="showImagePopup(props.rowData)"
+                  width="100"
+                  height="100"/>
                 <!--<button @click="showImagePopup(props.rowData)">xem</button>-->
               </template>
               <template slot="staffName" slot-scope="props">
@@ -81,7 +84,11 @@
               <template slot="postNews" slot-scope="props">
                 <b-badge class="NBadge nHover" pill variant="danger"
                   v-if="props.rowData.linkTree !== '' && props.rowData.statusId !== 3"
-                  @click="postNewFace(props.rowData)">Đăng face
+                  @click="postNewFace(props.rowData)">Đăng link
+                </b-badge>
+                <b-badge class="NBadge nHover" pill variant="primary"
+                  v-if="props.rowData.linkTree !== '' && props.rowData.statusId !== 3"
+                  @click="postNewFace(props.rowData, true)">Đăng ảnh
                 </b-badge>
               </template>
               <template slot="actions" slot-scope="props">
@@ -123,12 +130,11 @@ import NCoreModalQuestion from "@/containers/ndev-core/components/NCoreModalQues
 import NewsGroupCombobox from "@/views/app/news-content-manager/combobox/newsGroupCombobox";
 import ModalContentView from "@/views/app/news-content-manager/modal-content/modalContentView";
 // import CommentManagerModal from "@/views/app/sale-product-manager/modal/commentManagerModal.vue";
-import { items } from "@/data/carouselItems";
 import helperApi from "@/views/app/system-manager/api/helperApi";
 import NewsAuthorCombobox from "@/views/app/news-content-manager/combobox/newsAuthorCombobox.vue";
 import NCoreDatePicker from "@/containers/ndev-core/components/NCoreDatePicker.vue";
 import ModalContentDateTime from "@/views/app/news-content-manager/modal-content/modalContentDateTime.vue";
-// import ModalImage from "../modal-content/modal-image.vue";
+import ModalImage from "../modal-content/modal-image.vue";
 
 export default {
   components: {
@@ -149,7 +155,7 @@ export default {
     NPaginationPageSize,
     NPagination,
     vuetable: Vuetable,
-    // ModalImage
+    ModalImage
   },
   data() {
     return {
@@ -219,7 +225,6 @@ export default {
           width: "20%",
         }
       ],
-      isCallNow: true, // đang gọi dữ liệu
       newsGroupTypeCombobox: NCoreConfig.isGuidEmpty,
       newsGroupTypeComboboxTitle: 'Tác giả: -- Chọn tác giả --',
       newsGroupCombobox: [],
@@ -228,9 +233,6 @@ export default {
     };
   },
   methods: {
-    items() {
-      return items
-    },
     ...mapActions([
       "callStoreCrudUpdate",
       "callStoreCrudDelete",
@@ -262,7 +264,6 @@ export default {
       );
       this.dataPage = []
       this.dataPage = iResult.pageLists;
-      this.items = iResult.pageLists;
       this.totalRecord = iResult.totalRecord;
       this.to = this.pageSize;
 
@@ -503,11 +504,12 @@ export default {
       document.body.removeChild(textarea);
       NCoreHelper.v2alertMess(this, 'Sao chép link thành công', 2)
     },
-    async postNewFace(val) {
+    async postNewFace(val, isImg = false) {
       this.$showAllPageLoading()
       const iResult = await NCoreHelper.v2executePOST(this, newsContentApi.POST_NEW, {
         id: val.id,
-        host: this.$serverfile
+        host: this.$serverfile,
+        isPostImg: isImg
       })
       if (iResult.result) {
         NCoreHelper.v2alertMess(this, 'đăng face <span class=\"nFontBold nColorBlue\">' + val.name + '</span> thành công', 2)

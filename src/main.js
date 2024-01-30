@@ -55,12 +55,12 @@ Vue.filter('formatDateDDMMYYYYHHMM', function (value) {
   if (value === '0001-01-01T00:00:00') return ''
   const date = new Date(value);
 
-  const optionsTime = { hour: '2-digit', minute: '2-digit' };
-  const optionsDate = { day: '2-digit', month: '2-digit', year: 'numeric' };
-
-  const formattedTime = new Intl.DateTimeFormat('en-US', optionsTime).format(date);
+  const hour = date.getHours().toString().padStart(2, '0');
+  const minute = date.getMinutes().toString().padStart(2, '0');
+  const optionsDate = { year: 'numeric',month: '2-digit',  day: '2-digit' };
   const formattedDate = new Intl.DateTimeFormat('en-US', optionsDate).format(date);
-  return `${formattedTime} | ${formattedDate}`;
+  const [month, day, year] = formattedDate.split('/');
+  return `${hour}:${minute} | ${day}/${month}/${year}`;
 })
 Vue.component('piaf-breadcrumb', Breadcrumb);
 Vue.component('b-refresh-button', RefreshButton);

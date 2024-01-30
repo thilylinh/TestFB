@@ -217,9 +217,6 @@ export default {
         const iPass = localStorage.getItem(NCoreConfig.storagePassWord)
         localStorage.clear()
         this.signOut().then(() => {
-          localStorage.setItem(NCoreConfig.storageUserName, iUser)
-          localStorage.setItem(NCoreConfig.storagePassWord, iPass)
-
           this.$router.push("/user/login");
         });
       }
@@ -234,9 +231,6 @@ export default {
         const iPass = localStorage.getItem(NCoreConfig.storagePassWord)
         localStorage.clear()
         this.signOut().then(() => {
-          localStorage.setItem(NCoreConfig.storageUserName, iUser)
-          localStorage.setItem(NCoreConfig.storagePassWord, iPass)
-
           this.$router.push("/user/login");
         });
       }

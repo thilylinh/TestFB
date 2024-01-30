@@ -45,7 +45,7 @@
       </b-row>
       <template>
         <n-core-skeleton :flag-group="3"/>
-        <b-row v-show="!$store.state.componentLoading">
+        <b-row v-if="!$store.state.componentLoading">
           <b-colxx xxs="12" class="NTable">
             <vuetable ref="projectManagerTableRef"
                       :api-mode="false"
@@ -55,7 +55,7 @@
                       :reactive-api-url="true"
                       class="table-divided order-with-arrow">
               <template slot="avatar" slot-scope="props">
-                <b-img-lazy :src="returnAvatar(props.rowData)" class="img_avatar_table"/>
+                <b-img-lazy :src="returnAvatar(props.rowData)" class="img_avatar_table" width="100" height="100"/>
               </template>
               <template slot="staffName" slot-scope="props">
                 {{ props.rowData.name }}
@@ -163,7 +163,6 @@ import NCoreAction from "@/containers/ndev-core/components/NCoreAction";
 import NCoreModalQuestion from "@/containers/ndev-core/components/NCoreModalQuestion";
 import NewsGroupCombobox from "@/views/app/news-content-manager/combobox/newsGroupCombobox";
 import ModalContentView from "@/views/app/news-content-manager/modal-content/modalContentView";
-import {items} from "@/data/carouselItems";
 import NewsAuthorCombobox from "@/views/app/news-content-manager/combobox/newsAuthorCombobox.vue";
 import NCoreDatePicker from "@/containers/ndev-core/components/NCoreDatePicker.vue";
 import ModalContentDateTime from "@/views/app/news-content-manager/modal-content/modalContentDateTime.vue";
@@ -274,9 +273,6 @@ export default {
     };
   },
   methods: {
-    items() {
-      return items
-    },
     ...mapActions([
       "callStoreCrudUpdate",
       "callStoreCrudDelete",
@@ -342,7 +338,6 @@ export default {
         newsContentApi.NEWS_CONTENT_GET_PAGING_AUTO_POST,
         dataSend
       );
-      this.dataPage = []
       // ================================================Show hình ảnh==================================================
       // for (let i = 0; i < iResult.pageLists.length; i++) {
       //   this.dataPage.push({
@@ -352,11 +347,9 @@ export default {
       //       : iResult.pageLists[i].avatarLink
       //   })
       // }
-      this.dataPage = iResult.pageLists;
-      this.items = iResult.pageLists;
+      this.dataPage = iResult?.pageLists || [];
       this.totalRecord = iResult.totalRecord;
       this.to = this.pageSize;
-
       this.$hideLoading();
     },
     returnAvatar(val) {
@@ -644,11 +637,7 @@ export default {
     // },
     //================================================Lấy dữ liệu DateTime-Picker=======================================
     async callDateTimePickerModal(val) {
-      let dateTimeNow = new Date()
-      dateTimeNow.setMinutes(0, 0, 0)
-      this.$refs.refNewsContent_DatePicker.date = val.timeAutoPost === null
-        ? dateTimeNow
-        : new Date(val.timeAutoPost)
+      this.$refs.refNewsContent_DatePicker.date = val.timeAutoPost
       this.$refs.refNewsContent_DatePicker.newsId = val.id
       NCoreHelper.v2modalShowHide(this, this.$refs.refNewsContent_DatePicker.pageId, 1)
     },

@@ -178,7 +178,7 @@ export default {
 </script>
 <style>
 .khungLogin {
-  background: url("https://kinhnghiemdayhoc.net/wp-content/uploads/2020/09/hinh-slide-1.jpg");
+  background: url(/assets/img/login/login.jpg);
   background-size: cover;
   border-radius: 30px;
 }
