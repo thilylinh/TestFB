@@ -74,7 +74,7 @@ export default {
   methods: {
     ...mapActions(['callStoreSendLibraryModal']),
     handleInit() {
-      console.log('dataImage', dataImage)
+      console.log('dataImage', this.dataImage)
       this.sourceId = this.dataImage.avatarId;
       this.sourceLink = this.dataImage.avatar;
     },
@@ -240,7 +240,7 @@ export default {
     },
     dataImage: {
       handler(newdataImage) {
-        console.log(newdataImage)
+        console.log("sss", newdataImage)
         if (newdataImage.avatar && newdataImage.avatarId) {
           this.sourceLink = this.cutLinkLocal(newdataImage.avatar);
           this.sourceId = newdataImage.avatarId
