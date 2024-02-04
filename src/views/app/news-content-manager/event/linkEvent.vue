@@ -285,6 +285,7 @@ export default {
         if (!this.$v.form.$anyError) {
           this.$showProcessing()
           const iAvatar = this.$refs.refNewsContentEvent_ModalContentAvatar.returnValue()
+          console.log("iAvatar", iAvatar)
           // let iContent = ''
           // for (let i = 0; i < this.newsContentTypeData.length; i++) {
           //   if (iContent === '') {
@@ -307,6 +308,7 @@ export default {
             agreeVia: this.agreeViaCheckbox === NCoreConfig.checkedValue,
             linkTree: this.form.linkTree,
             avatarId: iAvatar.id,
+            avatarLink: iAvatar.link,
             dateTimeStart: Date.now().toLocaleString(),
             attackViewId: 0,
             statusId: this.isStatusContent === NCoreConfig.checkedValue ? 3 : 4,
@@ -368,7 +370,7 @@ export default {
       if (!this.$v.form.$anyError) {
         this.$showProcessing()
         const iAvatar = this.$refs.refNewsContentEvent_ModalContentAvatar.returnValue()
-
+        console.log("iAvatar", iAvatar)
         const dataSend = {
           name: this.form.name,
           summary: this.form.summary,
@@ -381,6 +383,7 @@ export default {
           agreeVia: this.agreeViaCheckbox === NCoreConfig.checkedValue,
           linkTree: this.form.linkTree,
           avatarId: iAvatar.id,
+          avatarLink: iAvatar.link,
           dateTimeStart: this.form.dateTimeStart,
           attackViewId: 0,
           statusId: this.isStatusContent === NCoreConfig.checkedValue ? 3 : 4,
