@@ -4,7 +4,7 @@
       <b-row>
         <b-colxx xxs="12">
           <h1 class="NHeaderPage">{{ pageTitle }}</h1>
-          <div class="separator mb-2"/>
+          <div class="separator mb-2" />
         </b-colxx>
       </b-row>
       <template>
@@ -14,9 +14,8 @@
               <label class="font-weight-700">1. Thể loại <span class="nRequired">(*)</span> </label>
             </b-colxx>
             <b-colxx xxs="12">
-              <n-core-tree-select :data-combobox="comboboxFather"
-                                  ref="refNewsContentEvent_TreeViewNewsGroup"
-                                  @handlerSubmitEvent="subEvNewsContentEvent_TreeViewNewsGroup"/>
+              <n-core-tree-select :data-combobox="comboboxFather" ref="refNewsContentEvent_TreeViewNewsGroup"
+                @handlerSubmitEvent="subEvNewsContentEvent_TreeViewNewsGroup" />
             </b-colxx>
           </b-row>
           <b-row class="mt-2">
@@ -24,12 +23,8 @@
               <label class="font-weight-700">2. Tiêu đề bài viết <span class="nRequired">(*)</span> </label>
             </b-colxx>
             <b-colxx xxs="12">
-              <b-form-input id="newsContentEvent_txtTitle"
-                            v-model="$v.form.name.$model"
-                            :state="!$v.form.name.$error"
-                            autocomplete="off"
-                            autofocus
-                            placeholder="Nhập tiêu đề bài viết ..."/>
+              <b-form-input id="newsContentEvent_txtTitle" v-model="$v.form.name.$model" :state="!$v.form.name.$error"
+                autocomplete="off" autofocus placeholder="Nhập tiêu đề bài viết ..." />
               <b-form-invalid-feedback v-if="!$v.form.name.required">
                 Không được bỏ trống
               </b-form-invalid-feedback>
@@ -38,66 +33,57 @@
               </b-form-invalid-feedback>
             </b-colxx>
             <b-colxx xxs="12">
-              <b-form-checkbox v-model="isMinusWord"
-                               unchecked-value="not_accepted"
-                               value="accepted">
+              <b-form-checkbox v-model="isMinusWord" unchecked-value="not_accepted" value="accepted">
                 <span class="nHover selectCombobox">Tự động thay thế từ cấm</span>
               </b-form-checkbox>
+            </b-colxx>
+          </b-row>
+          <b-row class="mt-2">
+            <b-colxx xxs="12">
+              <label class="font-weight-700">3. Phụ đề </label>
+            </b-colxx>
+            <b-colxx xxs="12">
+              <textarea v-model="$v.form.summary.$model" rows="2" placeholder="Nhập phụ đề"
+                class="form-control" />
             </b-colxx>
           </b-row>
           <b-row class="mt-3">
             <b-col xs="12" sm="6" md="4" lg="3">
               <b-row>
                 <b-colxx xxs="12">
-                  <label class="font-weight-700">3. Ảnh đại diện</label>
+                  <label class="font-weight-700">4. Ảnh đại diện</label>
                 </b-colxx>
               </b-row>
-              <modal-content-avatar ref="refNewsContentEvent_ModalContentAvatar" :dataImage="form"/>
+              <modal-content-avatar ref="refNewsContentEvent_ModalContentAvatar" :dataImage="form" />
             </b-col>
             <b-col xs="12" sm="6" md="8" lg="9">
               <b-row>
                 <b-colxx xxs="12">
-                  <label class="font-weight-700">4. Từ khóa Seo</label>
+                  <label class="font-weight-700">5. Từ khóa Seo</label>
                 </b-colxx>
                 <b-colxx xxs="12">
                   <b-input-group>
                     <b-input-group-prepend>
                       <b-button variant="primary" @click="openSeoPagingModal()">
-                        <i class="simple-icon-layers"/>
+                        <i class="simple-icon-layers" />
                       </b-button>
                     </b-input-group-prepend>
-                    <b-form-input id="newsContentEvent_txtSeoKeyWord"
-                                  v-model="$v.form.seoKeyword.$model"
-                                  :state="!$v.form.seoKeyword.$error"
-                                  autocomplete="off"
-                                  placeholder="Nhập từ khóa Seo ..."/>
+                    <b-form-input id="newsContentEvent_txtSeoKeyWord" v-model="$v.form.seoKeyword.$model"
+                      :state="!$v.form.seoKeyword.$error" autocomplete="off" placeholder="Nhập từ khóa Seo ..." />
                   </b-input-group>
                 </b-colxx>
               </b-row>
-              <b-row class="mt-2">
-                <b-colxx xxs="12">
-                  <label class="font-weight-700">5. Tóm tắt bài viết </label>
-                </b-colxx>
-                <b-colxx xxs="12">
-                  <textarea v-model="$v.form.summary.$model" rows="5" placeholder="Nhập tóm tắt bài viết"
-                            class="form-control"/>
-                </b-colxx>
-              </b-row>
+
               <b-row class="mt-2">
                 <b-col lg="12" md="12" sm="12" xs="12">
                   <label class="font-weight-700">6. Link rút gọn </label>
                 </b-col>
                 <b-col lg="12" md="12" sm="12" xs="12">
-                  <b-form-input id="menuFunctionManagerEvent_txtlinkTree"
-                                v-model="$v.form.linkTree.$model"
-                                :state="!$v.form.linkTree.$error"
-                                autocomplete="off"
-                                placeholder="Nhập link rút gọn ..."/>
+                  <b-form-input id="menuFunctionManagerEvent_txtlinkTree" v-model="$v.form.linkTree.$model"
+                    :state="!$v.form.linkTree.$error" autocomplete="off" placeholder="Nhập link rút gọn ..." />
                 </b-col>
                 <b-col lg="12" md="12" sm="12" xs="12">
-                  <b-form-checkbox v-model="agreeViaCheckbox"
-                                   unchecked-value="not_accepted"
-                                   value="accepted">
+                  <b-form-checkbox v-model="agreeViaCheckbox" unchecked-value="not_accepted" value="accepted">
                     <span class="nHover selectCombobox">Duyệt Via</span>
                   </b-form-checkbox>
                 </b-col>
@@ -114,34 +100,29 @@
           </b-row>
           <b-row class="mt-2">
             <b-colxx xxs="12">
-              <n-core-button-run3 :btn-cancel="'Quay về'"
-                                  :btn-save-title="'Lưu bài viết'"
-                                  :show-btn-copy-link="showBtnCopyLink"
-                                  ref="refBtnNewsContentEvent"
-                                  @submitEvent="subEvNewsContentEvent_BtnSave"
-                                  @onSaveUpdate="onSaveUpdate"
-                                  @copyLink="copyLink"/>
+              <n-core-button-run3 :btn-cancel="'Quay về'" :btn-save-title="'Lưu bài viết'"
+                :show-btn-copy-link="showBtnCopyLink" ref="refBtnNewsContentEvent"
+                @submitEvent="subEvNewsContentEvent_BtnSave" @onSaveUpdate="onSaveUpdate" @copyLink="copyLink" />
             </b-colxx>
           </b-row>
         </b-card>
       </template>
     </b-colxx>
     <news-seo-key-word-paging-model ref="refNewsContent_NewsSeoKeyWordPagingModel"
-                                    @handlerSubmitEvent="subEvNewsContent_NewsSeoKeyWordPagingModel"/>
-    <n-core-date-picker ref="refNewsContent_DatePicker"
-                        @handleSubmitEvent="subEvNewsContent_DatePicker"/>
+      @handlerSubmitEvent="subEvNewsContent_NewsSeoKeyWordPagingModel" />
+    <n-core-date-picker ref="refNewsContent_DatePicker" @handleSubmitEvent="subEvNewsContent_DatePicker" />
     <news-content-type-combobox-model ref="refNewsContent_NewsContentTypeComboboxModel"
-                                      @handlerSubmitEvent="subEvNewsContent_NewsContentTypeComboboxModel"/>
+      @handlerSubmitEvent="subEvNewsContent_NewsContentTypeComboboxModel" />
     <n-core-modal-question ref="refNewsContent_NCoreModalQuestion"
-                           @handleSubmitEvent="subEvNewsContent_NCoreModalQuestion"/>
+      @handleSubmitEvent="subEvNewsContent_NCoreModalQuestion" />
   </b-row>
 </template>
 <script>
 
 import NCoreHelper from "../../../NCoreHelper/NCoreHelper";
 import NCoreConfig from "../../../NCoreHelper/NCoreConfig";
-import {maxLength, required} from "vuelidate/lib/validators";
-import {validationMixin} from "vuelidate";
+import { maxLength, required } from "vuelidate/lib/validators";
+import { validationMixin } from "vuelidate";
 import Datepicker from "vuejs-datepicker";
 import NCoreHtmlEditor from "@/containers/ndev-core/components/NCoreHtmlEditor";
 import NCoreButtonRun from "@/containers/ndev-core/components/NCoreButtonRun";
@@ -149,7 +130,7 @@ import newsGroupApi from "@/views/app/news-content-manager/api/newsGroupApi";
 import NCoreTreeSelect from "@/containers/ndev-core/components/NCoreTreeSelect";
 import NCoreCombobox from "@/containers/ndev-core/components/NCoreCombobox";
 import newsGroupTypeApi from "@/views/app/news-content-manager/api/newsGroupTypeApi";
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 import NewsSeoKeyWordPagingModel from "../combobox/newsSeoKeyWordPagingModel";
 import NCoreDatePicker from "../../../../containers/ndev-core/components/NCoreDatePicker";
 import NewsContentTypeComboboxModel from "@/views/app/news-content-manager/combobox/newsContentTypeComboboxModel";
@@ -431,7 +412,7 @@ export default {
       }
     },
     async copyLink() {
-      const result = await NCoreHelper.v2executeGET(this, newsContentApi.COPY_LINK, {id: this.$route.params.id });
+      const result = await NCoreHelper.v2executeGET(this, newsContentApi.COPY_LINK, { id: this.$route.params.id });
       const textarea = document.createElement('textarea');
       // textarea.value = val.domain + '' + val.metaName + '-' + val.metaKey
       textarea.value = result[0].name
