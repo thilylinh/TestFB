@@ -43,8 +43,7 @@
               <label class="font-weight-700">3. Phụ đề </label>
             </b-colxx>
             <b-colxx xxs="12">
-              <textarea v-model="$v.form.summary.$model" rows="2" placeholder="Nhập phụ đề"
-                class="form-control" />
+              <textarea v-model="$v.form.summary.$model" rows="2" placeholder="Nhập phụ đề" class="form-control" />
             </b-colxx>
           </b-row>
           <b-row class="mt-3">
@@ -174,9 +173,9 @@ export default {
       editorConfig: {
         // The configuration of the editor.
         contentsCss: {
-        height: '400px', // Set the maximum height here (e.g., 400px)
-        overflow: 'auto' // Enable scrolling if content overflows the maximum height
-      }
+          height: '400px', // Set the maximum height here (e.g., 400px)
+          overflow: 'auto' // Enable scrolling if content overflows the maximum height
+        }
       },
       pageTitle: '',
       newsGroupCombobox: '',
