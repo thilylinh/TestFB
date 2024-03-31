@@ -20,17 +20,19 @@
           </b-row>
           <b-row class="mt-2">
             <b-colxx xxs="12">
-              <label class="font-weight-700">2. Tiêu đề bài viết <span class="nRequired">(*)</span> </label>
+              <label class="font-weight-700">2. Tiêu đề trên facebook <span class="nRequired">(*)</span> </label>
             </b-colxx>
             <b-colxx xxs="12">
-              <b-form-input id="newsContentEvent_txtTitle" v-model="$v.form.name.$model" :state="!$v.form.name.$error"
+              <!-- <b-form-input id="newsContentEvent_txtTitle" v-model="$v.form.name.$model" :state="!$v.form.name.$error"
                 autocomplete="off" autofocus placeholder="Nhập tiêu đề bài viết ..." />
               <b-form-invalid-feedback v-if="!$v.form.name.required">
                 Không được bỏ trống
               </b-form-invalid-feedback>
               <b-form-invalid-feedback v-else-if="!$v.form.name.maxLength">
                 Độ dài tối đa 500 kí tự
-              </b-form-invalid-feedback>
+              </b-form-invalid-feedback> -->
+              <textarea v-model="$v.form.name.$model" rows="2" placeholder="Nhập tiêu đề bài viết"
+                class="form-control" />
             </b-colxx>
             <b-colxx xxs="12">
               <b-form-checkbox v-model="isMinusWord" unchecked-value="not_accepted" value="accepted">
@@ -40,10 +42,10 @@
           </b-row>
           <b-row class="mt-2">
             <b-colxx xxs="12">
-              <label class="font-weight-700">3. Phụ đề </label>
+              <label class="font-weight-700">3. Tiêu đề dưới comment </label>
             </b-colxx>
             <b-colxx xxs="12">
-              <textarea v-model="$v.form.summary.$model" rows="2" placeholder="Nhập phụ đề"
+              <textarea v-model="$v.form.summary.$model" rows="2" placeholder="Nhập tiêu đề dưới comment"
                 class="form-control" />
             </b-colxx>
           </b-row>
@@ -95,7 +97,11 @@
               <label class="font-weight-700">7. Nội dung bài viết <span class="nRequired">(*)</span> </label>
             </b-colxx>
             <b-colxx xxs="12" class="mt-1">
-              <ckeditor :editor="editor" v-model="form.content" :config="editorConfig"></ckeditor>
+              <quill-editor
+                ref="quill-editor-modal"
+                v-model.trim="form.content"
+                :value="form.content"
+              />
             </b-colxx>
           </b-row>
           <b-row class="mt-2">
@@ -145,12 +151,13 @@ import ContentEditor from "../../../../components/Editor/ContentEditor.vue";
 import NCoreButtonRun3 from "@/containers/ndev-core/components/NCoreButtonRun3.vue";
 import FroalaEditor from "@/components/Editor/FroalaEditor.vue";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
+import QuillEditor from '@/components/Editor/QuillEditor.vue'
 export default {
   components: {
     FroalaEditor,
     NCoreButtonRun3,
     ContentEditor,
+    QuillEditor,
     ModalContentPosition,
     ModalContentView,
     ModalContentAvatar,
@@ -746,3 +753,12 @@ export default {
   },
 };
 </script>
+<style lang=scss>
+.ql-editor .ql-video{
+  // width: -webkit-fill-available;
+  // max-width: inherit;
+}
+.ql-editor {
+    min-height: 228px;
+}
+</style>

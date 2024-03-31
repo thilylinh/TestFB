@@ -802,15 +802,15 @@ export default {
           if (width == null || width === '' || height == null || height === '') {
             if (node.src.includes('youtube')) {
               width = 560;
-              height = 315;
+              height = 440;
             } else if (node.src.includes('twitter')) {
-              width = 400;
-              height = 400;
+              width = 550;
+              height = 827;
             }
           }
           if (node.src.includes('youtube')) {
             width = 560;
-            height = 315;
+            height = 440;
           }
           node.setAttribute('width', width);
           node.setAttribute('height', height);
