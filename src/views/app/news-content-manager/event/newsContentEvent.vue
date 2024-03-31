@@ -97,11 +97,8 @@
               <label class="font-weight-700">7. Nội dung bài viết <span class="nRequired">(*)</span> </label>
             </b-colxx>
             <b-colxx xxs="12" class="mt-1">
-              <quill-editor
-                ref="quill-editor-modal"
-                v-model.trim="form.content"
-                :value="form.content"
-              />
+              <quill-editor class="quill-editor" ref="myQuillEditor" v-model.trim="form.content"
+                :value="form.content" />
             </b-colxx>
           </b-row>
           <b-row class="mt-2">
@@ -758,11 +755,17 @@ export default {
 };
 </script>
 <style lang=scss>
-.ql-editor .ql-video{
+.ql-editor .ql-video {
   // width: -webkit-fill-available;
   // max-width: inherit;
 }
+
 .ql-editor {
-    min-height: 228px;
+  min-height: 228px;
+}
+
+.quill-editor {
+  max-height: 400px;
+  overflow-y: auto;
 }
 </style>
