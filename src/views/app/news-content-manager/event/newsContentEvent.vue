@@ -180,6 +180,10 @@ export default {
       editorData: '<p>Nhập dữ liệu bài viết</p>',
       editorConfig: {
         // The configuration of the editor.
+        contentsCss: {
+          height: '400px', // Set the maximum height here (e.g., 400px)
+          overflow: 'auto' // Enable scrolling if content overflows the maximum height
+        }
       },
       pageTitle: '',
       newsGroupCombobox: '',

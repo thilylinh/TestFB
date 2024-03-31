@@ -87,6 +87,14 @@ const routes = [
                     /* webpackChunkName: "news-content-manager" */ "./views/app/news-content-manager/page/newsContentAutoPost.vue"
                     )
           },
+          {
+            path: "user-view",
+            name: "news-content-manager-time-auto-pst",
+            component: () =>
+                import(
+                    /* webpackChunkName: "news-content-manager" */ "./views/app/news-content-manager/page/statisticView.vue"
+                    )
+          },
           // {
           //   path: "news-recruitment",
           //   name: "news-content-manager-news-recruitment",
